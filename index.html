@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,11 @@
 <body>
     <div class="container">
         <div class="title">Speech To Text</div>
-        <button>Press to talk</button>
+        <div class="micContainer">
+            <button id="switch" class="up" onclick="buttonSwitch()">Press to talk</button>
+            <div id="micActive"></div>
+        </div>
+        <div id="dialogue"></div>
 
 
     </div>

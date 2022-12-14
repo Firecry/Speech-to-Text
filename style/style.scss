@@ -1,10 +1,11 @@
 html, body{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    background-color: #222;
 }
 .container{
     height: 100vh;
-    background-color: black;
     color: wheat;
     font-size: 4rem;
     display: flex;
@@ -14,20 +15,62 @@ html, body{
     gap: 50px;
     user-select: none;
     .title{
-        text-decoration:#383838 underline;
+        text-decoration:#585858 underline;
     }
-    button{
-        all: unset;
-        color: black;
-        background-color: wheat;
-        font-size: 2.5rem;
-        padding: 15px;
+    .micContainer{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+        justify-content: center;
+        button{
+            all: unset;
+            transition: .2s;
+        }
+        .up{
+            color: black;
+            background-color: #f5deb3;
+            font-size: 2.5rem;
+            padding: 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 9px #999;
+        }
+        .down{
+            background-color: #a39680;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        #micActive{
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border-radius: 50%;
+        }
+    }
+    #dialogue{
+        width: 50%;
         border-radius: 20px;
-        cursor: pointer;
-        box-shadow: 0 9px #999;
+        font-size: 2rem;
+        padding: 10px 25px;
+        text-align: justify;
+        user-select: text;
+        color: #ffb393;
     }
 }
-// button active
-// background-color: #a39680;
-// box-shadow: 0 5px #666;
-// transform: translateY(4px);
+
+@media only screen and (max-width: 900px){
+    .container{
+        .title{
+            font-size: 3.5rem;
+        }
+        #dialogue{
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@keyframes micRecorder{
+    0% {background-color: transparent;}
+    100% {background-color: red;}
+}

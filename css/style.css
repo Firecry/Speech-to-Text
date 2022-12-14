@@ -1,11 +1,12 @@
 html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  background-color: #222;
 }
 
 .container {
   height: 100vh;
-  background-color: black;
   color: wheat;
   font-size: 4rem;
   display: flex;
@@ -19,16 +20,74 @@ html, body {
           user-select: none;
 }
 .container .title {
-  -webkit-text-decoration: #383838 underline;
-          text-decoration: #383838 underline;
+  -webkit-text-decoration: #585858 underline;
+          text-decoration: #585858 underline;
 }
-.container button {
+.container .micContainer {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+}
+.container .micContainer button {
   all: unset;
+  transition: 0.2s;
+}
+.container .micContainer .up {
   color: black;
-  background-color: wheat;
+  background-color: #f5deb3;
   font-size: 2.5rem;
   padding: 15px;
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 9px #999;
+}
+.container .micContainer .down {
+  background-color: #a39680;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.container .micContainer #micActive {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border-radius: 50%;
+}
+.container #dialogue {
+  width: 50%;
+  border-radius: 20px;
+  font-size: 2rem;
+  padding: 10px 25px;
+  text-align: justify;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  color: #ffb393;
+}
+
+@media only screen and (max-width: 900px) {
+  .container .title {
+    font-size: 3.5rem;
+  }
+  .container #dialogue {
+    font-size: 1.5rem;
+  }
+}
+@-webkit-keyframes micRecorder {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: red;
+  }
+}
+@keyframes micRecorder {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: red;
+  }
 }
