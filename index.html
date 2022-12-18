@@ -13,12 +13,16 @@
         <div class="fixed">
             <div class="title">Speech To Text</div>
             <div class="micContainer">
-                <div class="material-symbols-outlined">volume_up</div>
+                <span class="material-symbols-outlined" onclick="speaker()">volume_up</span>
                 <button id="switch" class="up" onclick="buttonSwitch()">Press to talk</button>
                 <div id="micActive"></div>
             </div>
         </div>
-        <div id="dialogue"></div>
+        <ul id="dialogue">
+            <li>
+                <span id="transcriptContent"></span>
+            </li>
+        </ul>
 
 
     </div>

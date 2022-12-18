@@ -9,30 +9,47 @@ function buttonSwitch(){
     element.classList.toggle("down");
 
     var micRec = document.getElementById('micActive')
-    var dialogue = document.getElementById('dialogue')
 
     recognition.onerror = (event) => {
         console.log(event.error)
     }
 
     recognition.onresult = function(event){
+        var dialogue = document.getElementById('dialogue')
         var current = event.resultIndex
         var transcript = event.results[current][0].transcript
-        dialogue.innerHTML += `<p>${transcript}</p>`
+        dialogue.innerHTML += `<li><span id="transcriptContent">${transcript}</span></li>`
     }
     
     if(element.classList.contains('down')){
         micRec.style.animation = 'micRecorder .5s infinite alternate'
         recognition.start();
         recognition.onstart = function(){
-            console.log("I'm listening. Try speaking into the microphone.");
+            console.log("Started");
         }
     }
     else{
         micRec.style.animation = '';
         recognition.stop();
         recognition.onspeechend = function(){
-            console.log("I'm done listening.");
+            console.log("Stopped");
         }
     }
+}
+
+const textTranscript = document.querySelectorAll('#transcriptContent')
+
+const lektor = new SpeechSynthesisUtterance();
+lektor.volume = 1
+lektor.rate = 1
+lektor.pitch = 1.2
+
+var voices = window.speechSynthesis.getVoices();
+
+lektor.voiceURI = "Microsoft Paulina - Polish (Poland)";
+lektor.lang = "pl-PL";
+
+function speaker(){
+    lektor.text = dialogue.innerText
+    speechSynthesis.speak(lektor)
 }

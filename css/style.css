@@ -40,7 +40,11 @@ html, body {
   justify-content: center;
 }
 .container .fixed .micContainer .material-symbols-outlined {
-  font-size: 3rem;
+  font-size: 2.6rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
@@ -82,10 +86,11 @@ html, body {
           user-select: text;
   color: #ffb393;
 }
-.container #dialogue p {
-  -webkit-text-decoration: underline #979797;
-          text-decoration: underline #979797;
+.container #dialogue li {
+  border-bottom: 1px solid #666;
   width: auto;
+  padding: 20px;
+  list-style: none;
 }
 
 @media only screen and (max-width: 900px) {
@@ -94,6 +99,7 @@ html, body {
   }
   .container #dialogue {
     font-size: 1.5rem;
+    width: 100%;
   }
 }
 @-webkit-keyframes micRecorder {
